@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://aggerdom.github.io/blog/index.html">
+<meta name="description" content="This is a demo site for Nikola.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gerdom's Blog</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="https://aggerdom.github.io/blog/index.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://aggerdom.github.io/">
+
+                <span id="blog-title">Gerdom's Blog</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lists-O-Links <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+<li>
+<a href="../psychology-links.html">Psychology Links</a>
+                    </li>
+<li>
+<a href="../cognitive-science-links.html">Cognitive Science Links</a>
+                    </li>
+<li>
+<a href="../philosophy-links.html">Philosophy Links</a>
+                    </li>
+<li>
+<a href="../neuroscience-links.html">Neuroscience Links</a>
+                    </li>
+<li>
+<a href="../data-science-links.html">Data Science Links</a>
+                    </li>
+<li>
+<a href="../programming-links.html">Programming Links</a>
+                    </li>
+<li>
+<a href="../logic-links.html">Logic Links</a>
+                    </li>
+<li>
+<a href="../math-links.html">Math Links</a>
+                    </li>
+<li>
+<a href="../misc-links.html">Misc Links</a>
+                    </li>
+<li>
+<a href="../russian-links.html">Russian Links</a>
+                    </li>
+<li>
+<a href="../unsorted_links.html">Unsorted Links</a>
+                    </li>
+<li>
+<a href="../math-links.html">Math Links</a>
+            </li>
+</ul>
+</li>
+<li>
+<a href="../my-projects.html">Projects</a>
+                </li>
+<li class="active">
+<a href="#">Blog <span class="sr-only">(active)</span></a>
+                </li>
+<li>
+<a href="../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../categories/index.html">Tags</a>
+                </li>
+<li>
+<a href="../about-me/index.html">About Me</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS feed</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+
+    
+<div class="postindex">
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="writing-a-gcd-function.html" class="u-url">Code Writeup: Writing a GCD Function</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Alex Gerdom
+            </span></p>
+            <p class="dateline"><a href="writing-a-gcd-function.html" rel="bookmark"><time class="published dt-published" datetime="2016-05-11T18:08:45-04:00" title="2016-05-11 18:08">2016-05-11 18:08</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Over the last couple of months, I haven't been able to set aside as much time to practice coding as much as I would like. However, wanting to stay in practice I have tried to set aside some time on weekends in order to do one or two challenges on <a href="https://checkio.org">checkio.org</a>. One of the nice things about the challenges posted there is that they don't simply ask you to solve problems, but you have to solve them in a way that manages to past tests that they have set for each problem. Oftentimes, I will come up with a solution to a problem, but will need to then go back to think about how I can either make my solution more efficient or handle various edge cases the authors have included. Today, I wanted to go through and focus on one particular problem to analyze various ways of solving it.</p>
+<p>The <a href="https://checkio.org/mission/gcd/">problem</a> in question was fairly standard, asking me to figure out the greatest common divisor for a set of integers provided as arguments to a function. It is worth noting that the integers were positive (0 &lt; x &lt;= 2**32), and the approaches presented here may need some additional logic if we wanted to extend the solutions to include negative integers (return the negative of the gcd of the absolute values of the arguments) or 0 (either return the non-zero number or I think either undefined or zero for gcd(0,0)). </p>
+<h2>Initial Approach</h2>
+<pre class="code literal-block"><span class="k">def</span> <span class="nf">greatest_common_divisor</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="sd">"""Brute force gcd function."""</span>
+    <span class="k">for</span> <span class="n">possible_divisor</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">arg</span> <span class="o">%</span> <span class="n">possible_divisor</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="n">possible_divisor</span>
+</pre>
+
+
+<h2>A Slight Improvement</h2>
+<p>What seems like the most obvious way to improve this solution is to reduce the number of factors we need to check. Since we're only interested in the largest number that evenly divides all of our arguments: it doesn't really make sense to search from lower to higher possible solutions, since we can't know if we've found the gcd till the full range has been checked. But if we search for possible factors starting from higher numbers and working to lower numbers, then we can stop as soon as we hit a number that evenly divides all of our arguments. </p>
+<pre class="code literal-block"><span class="k">def</span> <span class="nf">greatest_common_divisor</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="sd">"""Brute force gcd function."""</span>
+    <span class="k">for</span> <span class="n">possible_divisor</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="n">args</span><span class="p">))):</span>
+        <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">arg</span> <span class="o">%</span> <span class="n">possible_divisor</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="n">possible_divisor</span>
+</pre>
+
+
+<p>The interesting thing to think about with this solution, is that it doesn't improve worst case performance. If the gcd of all of our arguments is 1, then we still end up searching trying <code>min(args)</code> factors. However, <em>it does</em> improve best-case performance: In the best case requiring only 1 potential divisor to be checked.</p>
+<h2>Using prime factorization</h2>
+<p>My next approach was as follows: First, find the prime factorization for each number we are considering. For each of the prime factors, find how many times that factor occurs in prime factorization for each number. Finally, for the prime factors that occur in the prime factorization of all of the numbers we're trying to find the gcd for, take the product of those factors raised to however many times it occurs the least across all of our prime factorizations. </p>
+<pre class="code literal-block"><span class="k">def</span> <span class="nf">prime_gen</span><span class="p">():</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">tocheck</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">yield</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">tocheck</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">divisor_found</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">for</span> <span class="n">prime</span> <span class="ow">in</span> <span class="n">found</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">tocheck</span> <span class="o">%</span> <span class="n">prime</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">divisor_found</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">divisor_found</span><span class="p">:</span>
+            <span class="n">found</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tocheck</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">tocheck</span>
+
+
+<span class="k">def</span> <span class="nf">factor</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="c"># print("factoring: {}".format(number))</span>
+    <span class="n">seed</span> <span class="o">=</span> <span class="n">number</span>
+    <span class="n">factors</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">seed</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">testing_primes</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">prime_generator</span> <span class="o">=</span> <span class="n">prime_gen</span><span class="p">()</span>
+        <span class="k">while</span> <span class="n">testing_primes</span><span class="p">:</span>
+            <span class="n">prime_to_test</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">prime_generator</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">seed</span> <span class="o">%</span> <span class="n">prime_to_test</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">factors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prime_to_test</span><span class="p">)</span>
+                <span class="n">seed</span> <span class="o">=</span> <span class="n">seed</span> <span class="o">//</span> <span class="n">prime_to_test</span>
+                <span class="n">testing_primes</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="c"># print("Seed: {}, Factors: {}".format(seed,factors))</span>
+    <span class="k">return</span> <span class="n">factors</span>
+
+
+<span class="k">def</span> <span class="nf">greatest_common_divisor</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">        Find the greatest common divisor</span>
+<span class="sd">    """</span>
+    <span class="n">factor_dicts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c"># calculate the prime factorization for each argument</span>
+    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">factorization</span> <span class="o">=</span> <span class="n">factor</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+        <span class="n">factor_powers</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">unique_factor</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">factorization</span><span class="p">):</span>
+            <span class="n">factor_powers</span><span class="p">[</span><span class="n">unique_factor</span><span class="p">]</span> <span class="o">=</span> <span class="n">factorization</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">unique_factor</span><span class="p">)</span>
+        <span class="n">factor_dicts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">factor_powers</span><span class="p">)</span>
+    <span class="c"># get factors that appear in all the prime factorizations</span>
+    <span class="n">common_factors</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">factor_dicts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">factor_dict</span> <span class="ow">in</span> <span class="n">factor_dicts</span><span class="p">:</span>
+        <span class="n">common_factors</span> <span class="o">=</span> <span class="n">common_factors</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">factor_dict</span><span class="p">)</span>
+    <span class="c"># if the set of common factors is empty 1 is the gcd</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">common_factors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c"># calculate the product of the minimum power of each common factor</span>
+        <span class="n">minpowers</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">common_factor</span> <span class="ow">in</span> <span class="n">common_factors</span><span class="p">:</span>
+            <span class="n">minpowers</span><span class="p">[</span><span class="n">common_factor</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">factor_dict</span><span class="p">[</span><span class="n">common_factor</span><span class="p">]</span> <span class="k">for</span> <span class="n">factor_dict</span> <span class="ow">in</span> <span class="n">factor_dicts</span><span class="p">])</span>
+        <span class="n">minpower_exponentiated</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">key</span><span class="o">**</span><span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">minpowers</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+        <span class="n">gcd</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">powered_factor</span> <span class="ow">in</span> <span class="n">minpower_exponentiated</span><span class="p">:</span>
+            <span class="n">gcd</span> <span class="o">=</span> <span class="n">gcd</span> <span class="o">*</span> <span class="n">powered_factor</span>
+        <span class="k">return</span> <span class="n">gcd</span>
+</pre>
+
+
+<p>While this approach works in theory, it isn't immediately apparent whether it will be better <em>per se</em> than the second solution. In theory, it seemed like it could be better if we memoized our function for finding primes, and needed to make more than one call to the greatest_common_divisor function. </p>
+<p>This third solution still failed to pass the full test suite however. It handed all of the simple test cases that it was thrown at, but would hang on the first edge case. Uncommenting the print statements in the factor function produced the following results for the first two numbers in the test it tried to factor.</p>
+<pre class="code literal-block"><span class="n">factoring</span><span class="o">:</span> <span class="mi">2167650657</span>
+<span class="n">Seed</span><span class="o">:</span> <span class="mi">722550219</span><span class="o">,</span> <span class="n">Factors</span><span class="o">:</span> <span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+<span class="n">Seed</span><span class="o">:</span> <span class="mi">240850073</span><span class="o">,</span> <span class="n">Factors</span><span class="o">:</span> <span class="o">[</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">]</span>
+<span class="n">Seed</span><span class="o">:</span> <span class="mi">4544341</span><span class="o">,</span> <span class="n">Factors</span><span class="o">:</span> <span class="o">[</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">53</span><span class="o">]</span>
+<span class="n">Seed</span><span class="o">:</span> <span class="mi">2543</span><span class="o">,</span> <span class="n">Factors</span><span class="o">:</span> <span class="o">[</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">53</span><span class="o">,</span> <span class="mi">1787</span><span class="o">]</span>
+<span class="n">Seed</span><span class="o">:</span> <span class="mi">1</span><span class="o">,</span> <span class="n">Factors</span><span class="o">:</span> <span class="o">[</span><span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">53</span><span class="o">,</span> <span class="mi">1787</span><span class="o">,</span> <span class="mi">2543</span><span class="o">]</span>
+<span class="n">factoring</span><span class="o">:</span> <span class="mi">1496767446</span>
+<span class="n">Seed</span><span class="o">:</span> <span class="mi">748383723</span><span class="o">,</span> <span class="n">Factors</span><span class="o">:</span> <span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+<span class="n">Seed</span><span class="o">:</span> <span class="mi">249461241</span><span class="o">,</span> <span class="n">Factors</span><span class="o">:</span> <span class="o">[</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">]</span>
+<span class="n">Seed</span><span class="o">:</span> <span class="mi">83153747</span><span class="o">,</span> <span class="n">Factors</span><span class="o">:</span> <span class="o">[</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">]</span>
+<span class="n">Seed</span><span class="o">:</span> <span class="mi">4376513</span><span class="o">,</span> <span class="n">Factors</span><span class="o">:</span> <span class="o">[</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">19</span><span class="o">]</span>
+</pre>
+
+
+<p>It appeared that it was working fine for some numbers, but was needing to calculate fairly large primes for others. It managed to find the factors [2, 3, 3, 19] for 1496767446, but then would hang. As a small digression, if we want to figure out what prime it is struggling to calculate, we can do so with sympy fairly easily. </p>
+<pre class="code literal-block"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">primefactors</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">primefactors</span><span class="p">(</span><span class="mi">1496767446</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">4376513</span><span class="p">]</span>
+</pre>
+
+
+<p>So there's the problem, it got stuck trying to find prime factors of 4376513 which was itself prime.</p>
+<h2>With Euclid's Algorithm</h2>
+<p>So with the previous approach choaking for numbers that include large prime factors, it was back to the drawing board. I had previously heard of Euclid's Algorithm, but hadn't taken the time to look into it, instead opting previously for a more number theoretic approach. (In retrospect, Donald Knuth's quote about the Euclidian algorithm on the information page for the challege probably should have pushed me in this direction in the first place, but here we are.)</p>
+<pre class="code literal-block"><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">):</span>
+    <span class="sd">""" Recursive implementation of euclid's algorithm"""</span>
+    <span class="k">if</span> <span class="n">A</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">B</span>
+    <span class="k">if</span> <span class="n">B</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">A</span>
+    <span class="n">quotient</span> <span class="o">=</span> <span class="n">A</span><span class="o">//</span><span class="n">B</span>
+    <span class="n">remainder</span> <span class="o">=</span> <span class="n">A</span><span class="o">%</span><span class="n">B</span>
+    <span class="c"># A = B*quotient + remainder</span>
+    <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">remainder</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">greatest_common_divisor</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">        Find the greatest common divisor</span>
+<span class="sd">    """</span>
+    <span class="n">greatestCommonDivisor</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">greatestCommonDivisor</span> <span class="o">=</span> <span class="n">gcd</span><span class="p">(</span><span class="n">greatestCommonDivisor</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">greatestCommonDivisor</span>
+</pre>
+
+
+<p>Note here that this solution works in part because <a href="https://en.wikipedia.org/wiki/Greatest_common_divisor#Properties">the gcd is associative</a>. Another equally valid approach for applying the function to an arbitrary number of arguments would have been to use <code>reduce(gcd, args)</code> (In python 3.0+, you would first have to include <code>from functools import reduce</code> in your imports).</p>
+<h2>Best approach</h2>
+<p>The best approach however, is probably to just rely upon the standard library when possible.</p>
+<pre class="code literal-block"><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">gcd</span>
+
+<span class="k">def</span> <span class="nf">greatest_common_divisor</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">        Find the greatest common divisor</span>
+<span class="sd">    """</span>
+    <span class="n">greatestCommonDivisor</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">greatestCommonDivisor</span> <span class="o">=</span> <span class="n">gcd</span><span class="p">(</span><span class="n">greatestCommonDivisor</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">greatestCommonDivisor</span>
+</pre>
+
+
+<p>If we take a look at <code>\lib\fractions.py</code> , we can see that the gcd function included in the standard library uses an iterative version of Euclid's Algorithm. </p>
+<pre class="code literal-block"><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sd">"""Calculate the Greatest Common Divisor of a and b.</span>
+
+<span class="sd">    Unless b==0, the result will have the same sign as b (so that when</span>
+<span class="sd">    b is divided by it, the result comes out positive).</span>
+<span class="sd">    """</span>
+    <span class="k">while</span> <span class="n">b</span><span class="p">:</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">%</span><span class="n">b</span>
+    <span class="k">return</span> <span class="n">a</span>
+</pre>
+
+
+<h2>Summary</h2>
+<p>This challenge ended up being rather instructive for me for a couple of reasons. First, it helped me to realize that I need to take more time to analyze and research approaches to solving a problem before diving in and trying to solve it. Second, it really reinforces the point that if you really don't <em>need</em> to calculate primes, then you may want to question whether you should. Finally, working through different possible solutions got me to start thinking about the time-complexity of the code I've written. </p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="great-educational-youtube-series.html" class="u-url">Great Educational Youtube Series</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Alex Gerdom
+            </span></p>
+            <p class="dateline"><a href="great-educational-youtube-series.html" rel="bookmark"><time class="published dt-published" datetime="2016-02-27T19:53:11-05:00" title="2016-02-27 19:53">2016-02-27 19:53</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>For awhile now, I have been interested in collecting great educational videos and resources on this blog. Currently, I have various links to resources available under the "Lists-O-Links" tab in the navigation bar, but I'm still searching for the right format. But today I would like to take a few minutes to highlight a few really great educational video series I've come across on YouTube that have really impressed me.</p>
+<h3>Computerphile (<a href="https://www.youtube.com/user/Computerphile">YouTube Channel</a>)</h3>
+<p>Features short videos (typically 4-8 minutes) on various computer related topics such as Chomsky's Hierarchy and computer vision. </p>
+<h3>Numberphile (<a href="https://www.youtube.com/user/numberphile">YouTube Channel</a>)</h3>
+<p>Sister channel to Computerphile. Features short videos (typically 4-8 minutes) on numbers.</p>
+<h3>Introduction To Higher Mathematics Video Series (<a href="https://www.youtube.com/playlist?list=PLZzHxk_TPOStgPtqRZ6KzmkUQBQ8TSWVX">YouTube Playlist</a>)</h3>
+<p>A great video series I started working my way through last summer. Bill Shillito's "Introduction To Higher Mathematics" video series introduces the viewer to concepts in mathematics such as modular arithmetic, topology, and group theory. </p>
+<h3>Chaos - A mathematical adventure(<a href="https://www.youtube.com/playlist?list=PLelIK3uylPMHTEZ0hEx3PshdSx6awKmxa">Youtube Playlist</a>)</h3>
+<p>9 part video series that features animations explaining concepts related to chaos theory and dynamic systems. </p>
+<h3>Carneades.org (<a href="http://www.carneades.org/">Website</a>, <a href="https://www.youtube.com/user/carneadesofcyrene">YouTube Channel</a>)</h3>
+<p>Carneades.org is a great YouTube series on philosophical topics that is worth checking out for anyone interested in learning more about formal logic. They have been running a fantastic "100 Days of Logic" series covering categorical logic, predicate calculus, various modal logics, ect. If that sounds like something that you would like to learn more about: <a href="http://www.carneades.org/">www.carneades.org</a> is a good portal to a lot of their video series, and all the videos can be found at their YouTube <a href="https://www.youtube.com/user/carneadesofcyrene">channel</a>.</p>
+<h3>Flame0430(<a href="https://www.youtube.com/user/flame0430">YouTube Channel</a>)</h3>
+<p>Flame0430's YouTube Channel hosts a really fantastic series of interviews with leading philosophers such as W.V. Quine, Hilary Putnam, Bernard Williams, A.J Ayer, and more. </p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="javascriptlets-for-wayback-machine.html" class="u-url">Javascriptlets for Wayback Machine</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Alex Gerdom
+            </span></p>
+            <p class="dateline"><a href="javascriptlets-for-wayback-machine.html" rel="bookmark"><time class="published dt-published" datetime="2015-11-13T14:44:47-05:00" title="2015-11-13 14:44">2015-11-13 14:44</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Quick post today, the following are two javascriptlets for archiving and retrieving pages from the Internet Archive (originally found <a href="https://en.wikipedia.org/wiki/Help:Using_the_Wayback_Machine">here</a>). If you aren't familiar with javascriptlets, the general idea is that they function similar to bookmarks but rather than just taking you to a webpage they run some code written in javascript. To add them, open the prompt that you would use to add a webpage to your bookmarks, and copy and paste the code in where the address for the website would typically go.</p>
+<p></p>
+<center>
+<img alt="Image of javascriptlet bookmark" src="http://i.imgur.com/JrJA5FK.png" title="Example of adding scriptlet to firefox.">
+</center>
+<h3>Saving Pages to Wayback Machine</h3>
+<p>This first scriptlet "capture(s) a web page as it appears now for use as a trusted citation in the future."</p>
+<pre class="code literal-block"><span class="n">javascript</span><span class="o">:</span><span class="n">location</span><span class="o">.</span><span class="na">href</span><span class="o">=</span><span class="s1">'http://web.archive.org/save/'</span><span class="o">+</span><span class="n">location</span><span class="o">.</span><span class="na">href</span>
+</pre>
+
+
+<h3>Get An Archived Version of a Page From The Wayback Machine</h3>
+<p>This second piece of code is useful for anytime a webpage is down. After adding it you can just click the bookmark you have it saved to, and if someone has previously saved the page to the internet archive, then you can get an archived copy of the webpage. </p>
+<pre class="code literal-block"><span class="n">javascript</span><span class="o">:</span><span class="kc">void</span><span class="o">(</span><span class="n">window</span><span class="o">.</span><span class="na">open</span><span class="o">(</span><span class="s1">'https://web.archive.org/web/*/'</span><span class="o">+</span><span class="n">location</span><span class="o">.</span><span class="na">href</span><span class="o">));</span>
+</pre>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="time-management.html" class="u-url">Software Pick: Instant Boss A minimalist time manager</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Alex Gerdom
+            </span></p>
+            <p class="dateline"><a href="time-management.html" rel="bookmark"><time class="published dt-published" datetime="2015-11-01T22:12:51-05:00" title="2015-11-01 22:12">2015-11-01 22:12</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>A good time management tool can be invaluable. But its too easy to get sucked into spending time trying to figure out how to regiment your time. The system that I've found to work best for me is a small program called "Instant Boss". You give it the number of minutes you would like to work for, the number of minutes you would like to break for, and the number of times you would like to repeat the process. And it will display a countdown timer, and play a sound effect when time is up. Work for 10 minutes. Break for two minutes. Repeat...</p>
+<p></p>
+<center><img alt="Instant Boss Screenshot" src="http://i.imgur.com/nhYt42p.png"></center>
+<h3>Links</h3>
+<ul>
+<li><a href="http://www.appsapps.info/instantboss.php">Instant Boss Homepage</a></li>
+<li><a href="http://lifehacker.com/298550/time-your-work-sessions-with-instant-boss">Lifehacker Article Covering the Tool</a></li>
+</ul>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="impossible-colors.html" class="u-url">Impossible Colors</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Alex Gerdom
+            </span></p>
+            <p class="dateline"><a href="impossible-colors.html" rel="bookmark"><time class="published dt-published" datetime="2015-09-02T05:17:12-04:00" title="2015-09-02 05:17">2015-09-02 05:17</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>I very vividly remember the first time I saw a new color. I was a freshman at Indiana University at the time, browsing through the stacks of Wells Library. On the 6th floor of the library (currently being remodeled), I hit upon an old issue of the journal <em>Philosophical Psychology</em>, and in it I found an article by Paul Churchland entitled <a href="https://www.yumpu.com/en/document/view/33238159/churchland-chimeric-colors">Chimerical Colors: Some Phenomenological Predictions from Cognitive Neuroscience</a>. I'm ashamed to say that I have never found the time to dig into the article itself: too striking are the demonstrations its contains. See Frank Heile's response to this <a href="https://www.quora.com/Can-you-think-of-a-color-other-than-ones-we-already-have">Quora question</a> for a summary of the paper and a few of the figures.</p>
+<p>To keep this post brief, I'll leave a few links for the reader to explore in addition to the links already mentioned.</p>
+<ol>
+<li><a href="http://www.moillusions.com/eclipse-of-mars-illusion/">The Eclipse of Mars Illusion</a></li>
+<li><a href="https://www.yumpu.com/en/document/view/33238159/churchland-chimeric-colors">Chimerical Colors: Some Phenomenological Predictions from Cognitive Neuroscience</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Impossible_color">Impossible Colors (Wikipedia)</a></li>
+<li><a href="http://www.luniere.com/2014/03/01/hyperbolic-orange-and-the-river-to-hell/">Hyperbolic Orange And The River To Hell</a></li>
+</ol>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="markdown-version-of-thumbnail-with-nikola.html" class="u-url">Markdown Version of Thumbnail With Nikola</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Alex Gerdom
+            </span></p>
+            <p class="dateline"><a href="markdown-version-of-thumbnail-with-nikola.html" rel="bookmark"><time class="published dt-published" datetime="2015-08-31T02:34:18-04:00" title="2015-08-31 02:34">2015-08-31 02:34</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>The following takes an image I have placed in a folder, <em>Images</em>, in the base directory for nikola., and produces the following output.</p>
+<p></p>
+<center>
+<div class="col-md">
+<a class="col-md reference external image-reference" href="../images/lighthouseterror.jpg"><img alt="../images/lighthouseterror.thumbnail.jpg" src="../images/lighthouseterror.thumbnail.jpg"></a>
+</div>
+(Note how clicking the image will open a lightbox.)
+</center>
+<pre class="code literal-block"><span class="nt">&lt;center&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"col-md reference external image-reference"</span> <span class="na">href=</span><span class="s">"../images/lighthouseterror.jpg"</span><span class="nt">&gt;&lt;img</span> <span class="na">alt=</span><span class="s">"../images/lighthouseterror.thumbnail.jpg"</span> <span class="na">src=</span><span class="s">"../images/lighthouseterror.thumbnail.jpg"</span><span class="nt">&gt;&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/center&gt;</span>
+</pre>
+
+
+<p>Here is what my folder structure looks like. </p>
+<pre class="code literal-block">root
+| 
++ --+ Images
+|   |_  lighthouseterror.jpg  # Image You Want To Add
++ --+ Posts
+    \__2015
+       \__ This post.md # Location of This Post
+</pre>
+
+
+<h4>Sublime-Snippet</h4>
+<p>Here's a snippet version of the above that I use with Sublime text editor. Unfortunately, there doesn't seem to be a good way of adding tab completion to the snippet. </p>
+<pre class="code literal-block"><span class="nt">&lt;snippet&gt;</span>
+    <span class="nt">&lt;content&gt;</span><span class="cp">&lt;![CDATA[</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md"</span><span class="nt">&gt;</span><span class="cp"></span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"col-md reference external image-reference"</span> <span class="na">href=</span><span class="s">"</span><span class="cp">${</span><span class="mi">1</span><span class="p">:</span><span class="o">../</span><span class="n">images</span><span class="o">/</span><span class="n">someimage</span><span class="cp">}</span><span class="s">.</span><span class="cp">${</span><span class="mi">2</span><span class="p">:</span><span class="n">jpg</span><span class="cp">}</span><span class="s">"</span><span class="nt">&gt;&lt;img</span> <span class="na">alt=</span><span class="s">"</span><span class="cp">${</span><span class="mi">1</span><span class="p">:</span><span class="o">../</span><span class="n">images</span><span class="o">/</span><span class="n">someimage</span><span class="cp">}</span><span class="s">.thumbnail.</span><span class="cp">${</span><span class="mi">2</span><span class="p">:</span><span class="n">jpg</span><span class="cp">}</span><span class="s">"</span> <span class="na">src=</span><span class="s">"</span><span class="cp">${</span><span class="mi">1</span><span class="p">:</span><span class="o">../</span><span class="n">images</span><span class="o">/</span><span class="n">someimage</span><span class="cp">}</span><span class="s">.thumbnail.</span><span class="cp">${</span><span class="mi">2</span><span class="p">:</span><span class="n">jpg</span><span class="cp">}</span><span class="s">"</span><span class="nt">&gt;</span><span class="cp">&lt;/a&gt;</span>
+<span class="cp">&lt;/div&gt;</span>
+<span class="cp">]]&gt;</span><span class="nt">&lt;/content&gt;</span>
+    <span class="c">&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;</span>
+    <span class="c">&lt;!-- </span><span class="nt">&lt;tabTrigger&gt;</span><span class="c">hello&lt;/tabTrigger&gt; --&gt;</span>
+    <span class="c">&lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;</span>
+    <span class="c">&lt;!-- </span><span class="nt">&lt;scope&gt;</span><span class="c">source.python&lt;/scope&gt; --&gt;</span>
+<span class="nt">&lt;/snippet&gt;</span>
+</pre>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="test-markdown-post.html" class="u-url">Test Markdown Post</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Alex Gerdom
+            </span></p>
+            <p class="dateline"><a href="test-markdown-post.html" rel="bookmark"><time class="published dt-published" datetime="2015-08-30T18:34:36-04:00" title="2015-08-30 18:34">2015-08-30 18:34</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<h3>Including an image file</h3>
+<p><img alt="suppawow" src="../images/suppawow.png"></p>
+<p>To include an image file. Use the format:</p>
+<pre class="code literal-block">![ ALTTEXT ](/images/FILENAME)
+</pre>
+
+
+<p>To center an image. Use the html center tags.</p>
+<pre class="code literal-block"><span class="nt">&lt;center&gt;</span> ![suppawow](/images/suppawow.png) <span class="nt">&lt;/center&gt;</span>
+</pre>
+
+
+<p>To scale the image first, I will probably just be easier to use html, since
+I haven't figured out how to use alternative implimentations of markdown with nikola yet (Though mau may be an option.).</p>
+<pre class="code literal-block"><span class="o">&lt;</span><span class="nt">img</span> <span class="nt">src</span><span class="o">=</span><span class="s2">"/images/suppawow.png"</span> <span class="nt">alt</span><span class="o">=</span><span class="s2">"ALT TEXT"</span> <span class="nt">style</span><span class="o">=</span><span class="s2">"width: 200px;"</span><span class="o">/&gt;</span>
+</pre>
+
+
+<p><img src="../images/suppawow.png" alt="ALT TEXT" style="width: 200px;"></p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="testing_graphviz2.html" class="u-url">Testing_Graphviz2</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Alex Gerdom
+            </span></p>
+            <p class="dateline"><a href="testing_graphviz2.html" rel="bookmark"><time class="published dt-published" datetime="2015-08-29T08:39:46-04:00" title="2015-08-29 08:39">2015-08-29 08:39</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Write your post here.</p>
+<p class="graphviz"><?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Generated by graphviz version 2.38.0 (20140413.2041)
+
+ --><!-- Title: G Pages: 1 --><svg width="847pt" height="244pt" viewbox="0.00 0.00 846.65 244.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 240)"><title>G</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-240 842.646,-240 842.646,4 -4,4"></polygon><g id="clust1" class="cluster"><title>clusterD</title>
+<polygon fill="none" stroke="black" points="87.6465,-66 87.6465,-225 266.646,-225 266.646,-66 87.6465,-66"></polygon></g><g id="clust3" class="cluster"><title>clusterA</title>
+<polygon fill="none" stroke="black" points="438.646,-63 438.646,-228 588.646,-228 588.646,-63 438.646,-63"></polygon></g><g id="clust4" class="cluster"><title>clusterC</title>
+<polygon fill="none" stroke="black" points="510.646,-71 510.646,-220 580.646,-220 580.646,-71 510.646,-71"></polygon></g><g id="clust5" class="cluster"><title>clusterB</title>
+<polygon fill="none" stroke="black" points="660.646,-71 660.646,-220 830.646,-220 830.646,-71 660.646,-71"></polygon></g><!-- Igneous --><g id="node1" class="node"><title>Igneous</title>
+<ellipse fill="none" stroke="black" cx="39.6465" cy="-194" rx="39.7935" ry="18"></ellipse><text text-anchor="middle" x="39.6465" y="-190.3" font-family="Times New Roman,serif" font-size="14.00">Igneous</text></g><!-- I2 --><g id="node2" class="node"><title>I2</title>
+<polygon fill="none" stroke="red" points="131.646,-74 167.94,-108.5 95.3526,-108.5 131.646,-74"></polygon><text text-anchor="middle" x="131.646" y="-93.3" font-family="Times New Roman,serif" font-size="14.00">I2</text></g><!-- I3 --><g id="node3" class="node"><title>I3</title>
+<polygon fill="none" stroke="red" points="222.646,-74 258.94,-108.5 186.353,-108.5 222.646,-74"></polygon><text text-anchor="middle" x="222.646" y="-93.3" font-family="Times New Roman,serif" font-size="14.00">I3</text></g><!-- I1 --><g id="node4" class="node"><title>I1</title>
+<polygon fill="none" stroke="red" points="222.646,-171 258.94,-205.5 186.353,-205.5 222.646,-171"></polygon><text text-anchor="middle" x="222.646" y="-190.3" font-family="Times New Roman,serif" font-size="14.00">I1</text></g><!-- I1&#45;&#45;I2 --><g id="edge1" class="edge"><title>I1--I2</title>
+<path fill="none" stroke="black" d="M211.488,-181.351C193.643,-162.722 158.949,-126.502 141.777,-108.575"></path></g><!-- I1&#45;&#45;I3 --><g id="edge2" class="edge"><title>I1--I3</title>
+<path fill="none" stroke="black" d="M222.646,-170.966C222.646,-151.343 222.646,-123.488 222.646,-108.507"></path></g><!-- e --><g id="node8" class="node"><title>e</title>
+<ellipse fill="none" stroke="black" cx="303.646" cy="-97" rx="27" ry="18"></ellipse><text text-anchor="middle" x="303.646" y="-93.3" font-family="Times New Roman,serif" font-size="14.00">e</text></g><!-- I1&#45;&#45;e --><g id="edge4" class="edge"><title>I1--e</title>
+<path fill="none" stroke="black" d="M233.236,-180.58C248.073,-163.178 275.012,-131.583 290.921,-112.925"></path><text text-anchor="middle" x="272.146" y="-141.8" font-family="Times New Roman,serif" font-size="14.00">n</text></g><!-- S1 --><g id="node5" class="node"><title>S1</title>
+<ellipse fill="none" stroke="black" cx="473.646" cy="-194" rx="27" ry="18"></ellipse><text text-anchor="middle" x="473.646" y="-190.3" font-family="Times New Roman,serif" font-size="14.00">S1</text></g><!-- S --><g id="node6" class="node"><title>S</title>
+<ellipse fill="none" stroke="black" cx="545.646" cy="-194" rx="27" ry="18"></ellipse><text text-anchor="middle" x="545.646" y="-190.3" font-family="Times New Roman,serif" font-size="14.00">S</text></g><!-- D --><g id="node7" class="node"><title>D</title>
+<ellipse fill="none" stroke="black" cx="545.646" cy="-97" rx="27" ry="18"></ellipse><text text-anchor="middle" x="545.646" y="-93.3" font-family="Times New Roman,serif" font-size="14.00">D</text></g><!-- S&#45;&#45;D --><g id="edge3" class="edge"><title>S--D</title>
+<path fill="none" stroke="black" d="M545.646,-175.576C545.646,-158.434 545.646,-132.417 545.646,-115.314"></path></g><!-- clusterB --><g id="node12" class="node"><title>clusterB</title>
+<ellipse fill="none" stroke="black" cx="361.646" cy="-18" rx="40.0939" ry="18"></ellipse><text text-anchor="middle" x="361.646" y="-14.3" font-family="Times New Roman,serif" font-size="14.00">clusterB</text></g><!-- e&#45;&#45;clusterB --><g id="edge7" class="edge"><title>e--clusterB</title>
+<path fill="none" stroke="black" d="M315.384,-80.4179C325.248,-67.3224 339.301,-48.6649 349.326,-35.3562"></path></g><!-- Pyroclastic Rocks --><g id="node9" class="node"><title>Pyroclastic Rocks</title>
+<ellipse fill="none" stroke="black" cx="745.646" cy="-194" rx="77.1866" ry="18"></ellipse><text text-anchor="middle" x="745.646" y="-190.3" font-family="Times New Roman,serif" font-size="14.00">Pyroclastic Rocks</text></g><!-- Illuminati --><g id="node10" class="node"><title>Illuminati</title>
+<ellipse fill="none" stroke="black" cx="745.646" cy="-97" rx="43.5923" ry="18"></ellipse><text text-anchor="middle" x="745.646" y="-93.3" font-family="Times New Roman,serif" font-size="14.00">Illuminati</text></g><!-- Pyroclastic Rocks&#45;&#45;Illuminati --><g id="edge5" class="edge"><title>Pyroclastic Rocks--Illuminati</title>
+<path fill="none" stroke="black" d="M745.646,-175.576C745.646,-158.434 745.646,-132.417 745.646,-115.314"></path></g><!-- d --><g id="node11" class="node"><title>d</title>
+<ellipse fill="none" stroke="black" cx="623.646" cy="-194" rx="27" ry="18"></ellipse><text text-anchor="middle" x="623.646" y="-190.3" font-family="Times New Roman,serif" font-size="14.00">d</text></g><!-- d&#45;&#45;D --><g id="edge6" class="edge"><title>d--D</title>
+<path fill="none" stroke="black" d="M611.114,-177.737C596.559,-160.009 572.69,-130.937 558.147,-113.226"></path></g><!-- clusterC --><g id="node13" class="node"><title>clusterC</title>
+<ellipse fill="none" stroke="black" cx="389.646" cy="-97" rx="40.8928" ry="18"></ellipse><text text-anchor="middle" x="389.646" y="-93.3" font-family="Times New Roman,serif" font-size="14.00">clusterC</text></g><!-- clusterC&#45;&#45;clusterB --><g id="edge8" class="edge"><title>clusterC--clusterB</title>
+<path fill="none" stroke="black" d="M383.432,-78.9112C378.792,-66.151 372.479,-48.7897 367.843,-36.041"></path></g></g></svg></p>
+<p class="graphviz"><?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Generated by graphviz version 2.38.0 (20140413.2041)
+
+ --><!-- Title: G Pages: 1 --><svg width="847pt" height="244pt" viewbox="0.00 0.00 846.65 244.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 240)"><title>G</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-240 842.646,-240 842.646,4 -4,4"></polygon><g id="clust1" class="cluster"><title>clusterD</title>
+<polygon fill="none" stroke="black" points="87.6465,-66 87.6465,-225 266.646,-225 266.646,-66 87.6465,-66"></polygon></g><g id="clust3" class="cluster"><title>clusterA</title>
+<polygon fill="none" stroke="black" points="438.646,-63 438.646,-228 588.646,-228 588.646,-63 438.646,-63"></polygon></g><g id="clust4" class="cluster"><title>clusterC</title>
+<polygon fill="none" stroke="black" points="510.646,-71 510.646,-220 580.646,-220 580.646,-71 510.646,-71"></polygon></g><g id="clust5" class="cluster"><title>clusterB</title>
+<polygon fill="none" stroke="black" points="660.646,-71 660.646,-220 830.646,-220 830.646,-71 660.646,-71"></polygon></g><!-- Igneous --><g id="node1" class="node"><title>Igneous</title>
+<ellipse fill="none" stroke="black" cx="39.6465" cy="-194" rx="39.7935" ry="18"></ellipse><text text-anchor="middle" x="39.6465" y="-190.3" font-family="Times New Roman,serif" font-size="14.00">Igneous</text></g><!-- I2 --><g id="node2" class="node"><title>I2</title>
+<polygon fill="none" stroke="red" points="131.646,-74 167.94,-108.5 95.3526,-108.5 131.646,-74"></polygon><text text-anchor="middle" x="131.646" y="-93.3" font-family="Times New Roman,serif" font-size="14.00">I2</text></g><!-- I3 --><g id="node3" class="node"><title>I3</title>
+<polygon fill="none" stroke="red" points="222.646,-74 258.94,-108.5 186.353,-108.5 222.646,-74"></polygon><text text-anchor="middle" x="222.646" y="-93.3" font-family="Times New Roman,serif" font-size="14.00">I3</text></g><!-- I1 --><g id="node4" class="node"><title>I1</title>
+<polygon fill="none" stroke="red" points="222.646,-171 258.94,-205.5 186.353,-205.5 222.646,-171"></polygon><text text-anchor="middle" x="222.646" y="-190.3" font-family="Times New Roman,serif" font-size="14.00">I1</text></g><!-- I1&#45;&#45;I2 --><g id="edge1" class="edge"><title>I1--I2</title>
+<path fill="none" stroke="black" d="M211.488,-181.351C193.643,-162.722 158.949,-126.502 141.777,-108.575"></path></g><!-- I1&#45;&#45;I3 --><g id="edge2" class="edge"><title>I1--I3</title>
+<path fill="none" stroke="black" d="M222.646,-170.966C222.646,-151.343 222.646,-123.488 222.646,-108.507"></path></g><!-- e --><g id="node8" class="node"><title>e</title>
+<ellipse fill="none" stroke="black" cx="303.646" cy="-97" rx="27" ry="18"></ellipse><text text-anchor="middle" x="303.646" y="-93.3" font-family="Times New Roman,serif" font-size="14.00">e</text></g><!-- I1&#45;&#45;e --><g id="edge4" class="edge"><title>I1--e</title>
+<path fill="none" stroke="black" d="M233.236,-180.58C248.073,-163.178 275.012,-131.583 290.921,-112.925"></path><text text-anchor="middle" x="272.146" y="-141.8" font-family="Times New Roman,serif" font-size="14.00">n</text></g><!-- S1 --><g id="node5" class="node"><title>S1</title>
+<ellipse fill="none" stroke="black" cx="473.646" cy="-194" rx="27" ry="18"></ellipse><text text-anchor="middle" x="473.646" y="-190.3" font-family="Times New Roman,serif" font-size="14.00">S1</text></g><!-- S --><g id="node6" class="node"><title>S</title>
+<ellipse fill="none" stroke="black" cx="545.646" cy="-194" rx="27" ry="18"></ellipse><text text-anchor="middle" x="545.646" y="-190.3" font-family="Times New Roman,serif" font-size="14.00">S</text></g><!-- D --><g id="node7" class="node"><title>D</title>
+<ellipse fill="none" stroke="black" cx="545.646" cy="-97" rx="27" ry="18"></ellipse><text text-anchor="middle" x="545.646" y="-93.3" font-family="Times New Roman,serif" font-size="14.00">D</text></g><!-- S&#45;&#45;D --><g id="edge3" class="edge"><title>S--D</title>
+<path fill="none" stroke="black" d="M545.646,-175.576C545.646,-158.434 545.646,-132.417 545.646,-115.314"></path></g><!-- clusterB --><g id="node12" class="node"><title>clusterB</title>
+<ellipse fill="none" stroke="black" cx="361.646" cy="-18" rx="40.0939" ry="18"></ellipse><text text-anchor="middle" x="361.646" y="-14.3" font-family="Times New Roman,serif" font-size="14.00">clusterB</text></g><!-- e&#45;&#45;clusterB --><g id="edge7" class="edge"><title>e--clusterB</title>
+<path fill="none" stroke="black" d="M315.384,-80.4179C325.248,-67.3224 339.301,-48.6649 349.326,-35.3562"></path></g><!-- Pyroclastic Rocks --><g id="node9" class="node"><title>Pyroclastic Rocks</title>
+<ellipse fill="none" stroke="black" cx="745.646" cy="-194" rx="77.1866" ry="18"></ellipse><text text-anchor="middle" x="745.646" y="-190.3" font-family="Times New Roman,serif" font-size="14.00">Pyroclastic Rocks</text></g><!-- Illuminati --><g id="node10" class="node"><title>Illuminati</title>
+<ellipse fill="none" stroke="black" cx="745.646" cy="-97" rx="43.5923" ry="18"></ellipse><text text-anchor="middle" x="745.646" y="-93.3" font-family="Times New Roman,serif" font-size="14.00">Illuminati</text></g><!-- Pyroclastic Rocks&#45;&#45;Illuminati --><g id="edge5" class="edge"><title>Pyroclastic Rocks--Illuminati</title>
+<path fill="none" stroke="black" d="M745.646,-175.576C745.646,-158.434 745.646,-132.417 745.646,-115.314"></path></g><!-- d --><g id="node11" class="node"><title>d</title>
+<ellipse fill="none" stroke="black" cx="623.646" cy="-194" rx="27" ry="18"></ellipse><text text-anchor="middle" x="623.646" y="-190.3" font-family="Times New Roman,serif" font-size="14.00">d</text></g><!-- d&#45;&#45;D --><g id="edge6" class="edge"><title>d--D</title>
+<path fill="none" stroke="black" d="M611.114,-177.737C596.559,-160.009 572.69,-130.937 558.147,-113.226"></path></g><!-- clusterC --><g id="node13" class="node"><title>clusterC</title>
+<ellipse fill="none" stroke="black" cx="389.646" cy="-97" rx="40.8928" ry="18"></ellipse><text text-anchor="middle" x="389.646" y="-93.3" font-family="Times New Roman,serif" font-size="14.00">clusterC</text></g><!-- clusterC&#45;&#45;clusterB --><g id="edge8" class="edge"><title>clusterC--clusterB</title>
+<path fill="none" stroke="black" d="M383.432,-78.9112C378.792,-66.151 372.479,-48.7897 367.843,-36.041"></path></g></g></svg></p>
+</div>
+    </div>
+    </article>
+</div>
+
+
+
+
+
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2016         <a href="mailto:alexgerdom@gmail.com">Alex Gerdom</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>
