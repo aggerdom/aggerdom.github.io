@@ -1,0 +1,57 @@
+.. title: How I Missed My Shot At A Google Interview (Or How Not To FooBar)
+.. slug: how-i-missedgooglestory
+.. date: 2016-06-30 23:51:52 UTC-04:00
+.. tags: draft
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+
+
+.. topic:: Introduction to the story
+
+    .. compound::
+        It was the week before midterms a few months back. At the time, I was up
+        to my ankles with studying and finishing my thesis, and was working on
+        some code when I found myself Googling the documentation for the
+        itertools python module. What happened next was surprising, and in my
+        case unfortunate: I received the invitation for "foo.bar".
+
+        Many nights
+
+
+.. list-table:: Frozen Delights!
+   :widths: 15 10 30
+   :header-rows: 1
+
+   * - Treat
+     - Quantity
+     - Description
+   * - Albatross
+     - 2.99
+     - On a stick!
+   * - Crunchy Frog
+     - 1.49
+     - If we took the bones out, it wouldn't be
+       crunchy, now would it?
+   * - Gannet Ripple
+     - 1.99
+     - On a stick!
+
+
+.. image:: 
+    url:''http://nickety.rwbay.com/wp-content/uploads/2015/07/google-foobar.jpg''
+
+.. media:: `http://nickety.rwbay.com/wp-content/uploads/2015/07/google-foobar.jpg`
+
+.. epigraph::
+
+   An epigraph. No matter where you go, there you are.
+
+   -- Buckaroo Banzai
+
+.. pull-quote::
+
+   An pull-quote. No matter where you go, there you are.
+
+   -- Buckaroo Banzai
