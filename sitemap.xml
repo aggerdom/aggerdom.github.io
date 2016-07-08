@@ -7,182 +7,198 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://aggerdom.github.io/2015/index.html</loc>
-  <lastmod>2016-07-01T01:56:00Z</lastmod>
+  <lastmod>2016-07-08T00:13:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/2016/index.html</loc>
-  <lastmod>2016-07-01T01:56:00Z</lastmod>
+  <lastmod>2016-07-08T00:11:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/about-me.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/archive.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:13:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/blog/great-educational-youtube-series.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://aggerdom.github.io/blog/how-i-missed-my-shot-at-a-google-interview-or-how-not-to-foobar.html</loc>
+  <lastmod>2016-07-01T03:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/blog/impossible-colors.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/blog/index.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:13:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/blog/javascriptlets-for-wayback-machine.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/blog/markdown-version-of-thumbnail-with-nikola.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://aggerdom.github.io/blog/test-gcd-as-ipynb.html</loc>
+  <lastmod>2016-07-01T03:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/blog/test-markdown-post.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
- </url>
- <url>
-  <loc>https://aggerdom.github.io/blog/testing_graphviz2.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:13:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/blog/time-management.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/blog/writing-a-gcd-function.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:11:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/categories/algorithms.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/categories/archiveorg.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/categories/archiving.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/categories/cat_code.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/categories/cat_programming.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/categories/cat_software-recommendations.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/categories/citing-web-pages.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/categories/code.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/categories/impossible-colors.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/categories/index.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/categories/learning-nikola.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/categories/perception.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/categories/philosophy.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/categories/productivity.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/categories/psychology.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/categories/time-management.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/categories/writeups.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/cognitive-science-links.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/data-science-links.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/galleries/index.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/index.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:12:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/logic-links.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/math-links.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/misc-links.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/my-projects.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:05:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/neuroscience-links.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://aggerdom.github.io/new-projects-page.html</loc>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/philosophy-links.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/programming-links.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://aggerdom.github.io/projects.html</loc>
+  <lastmod>2016-07-08T00:09:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/psychology-links.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/resources-for-learning-python.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/russian-links.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://aggerdom.github.io/test-rst-page.html</loc>
+  <lastmod>2016-07-08T00:12:00Z</lastmod>
  </url>
  <url>
   <loc>https://aggerdom.github.io/unsorted_links.html</loc>
-  <lastmod>2016-07-01T00:01:00Z</lastmod>
+  <lastmod>2016-07-08T00:06:00Z</lastmod>
  </url>
 </urlset>

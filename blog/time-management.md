@@ -1,5 +1,5 @@
 <!-- 
-.. title: Software Pick: Instant Boss A minimalist time manager
+.. title: Software Pick: Instant Boss A Minimalist Time Manager
 .. slug: time-management
 .. date: 2015-11-01 22:12:51 UTC-05:00
 .. tags: Time Management

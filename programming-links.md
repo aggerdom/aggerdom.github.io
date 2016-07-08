@@ -138,6 +138,7 @@ Learning with Python: Interactive Edition 2.0](http://interactivepython.org/rune
 -    [ITK - Segmentation & Registration Toolkit](http://www.itk.org/ITK/resources/resources.html)
 -    [SymPy - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/SymPy)
 -    [Radix point - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Radix_point)
+-    [Dirt Directory](http://dirtdirectory.org/)
 
 
 ### Compsci

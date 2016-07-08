@@ -1,0 +1,89 @@
+.. title: New Projects Page
+.. slug: new-projects-page
+.. date: 2016-07-06 15:42:51 UTC-04:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+
+===========================
+Undergraduate Honors Thesis
+===========================
+
+.. abstract::
+    Geological taxonomies traditionally divide rocks into broad superordinate categories (Igneous, Sedimentary, and Metamorphic) each comprising many subtypes (e.g. Granite, Slate, or Sandstone). We investigated the interaction of category structure and attended category level in learning these categories. In a supervised learning experiment, subjects learned to classify photographs of rocks by either superordinate category or subtype. In a compact condition, similarities between subtypes within each superordinate category were high, whereas in a dispersed condition they were low. Hypothesizing an interaction between the compactness of categories and learned level, an advantage was found for learning of superordinate categories when categories were compact if subjects learned categories at the superordinate level. However when categories were dispersed, learning at the subtype level was found to be advantageous.
+
+
+.. sidebar:: Summary
+
+    :Summary:
+        (Coming Soon)
+
+    :Links:
+        `Honors Thesis (PDF)`_
+
+        `Poster Presentation`_
+
+        `Slides From Thesis Defense`_
+
+    :Writeups:
+        (Coming Soon)
+
+
+
+.. _`Honors Thesis (PDF)`: Alex-Gerdom-Honors-Thesis.pdf
+.. _`Poster Presentation`: School-Of-Rocks-Poster.pdf
+.. _`Slides From Thesis Defense`: Defense-Presentation.pdf
+
+.. <!-- Story-->
+.. <!-- Unanswered Questions -->
+.. <!-- How to's 
+..     Add Signiture Page
+..     Make a table of contents
+..     -->
+
+.. ---------------------------------------------------------------------
+
+
+
+=============
+Picture Plot
+=============
+
+.. youtube:: DcEv48_gP0s
+
+
+.. ----------------------------------------------------------------------
+
+==========
+BrackStack
+==========
+
+
+
+Summary
+    (Coming Soon)
+
+Links
+    - `Github <https://github.com/aggerdom/brackstack>`_
+
+Writeups
+    (Coming soon)
+
+
+.. ----------------------------------------------------------------------
+
+=====================
+DAGText (Coming Soon)
+=====================
+
+.. ----------------------------------------------------------------------
+
+================
+Tkinter-Widgets
+================
+
+
+
+
