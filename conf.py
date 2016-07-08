@@ -141,7 +141,7 @@ NAVIGATION_LINKS = {
             ),
             "Lists-O-Links"
         ),
-        ("/my-projects.html","Projects"),
+        ("/projects.html","Projects"),
         ("/blog/index.html","Blog"),
         ("/archive.html", "Archive"),
         ("/categories/index.html", "Tags"),
@@ -226,10 +226,13 @@ TIMEZONE = "America/Indianapolis"
 POSTS = [
             ("posts/*.txt", "blog", "post.tmpl"),
             ("posts/*.md" , "blog", "post.tmpl"),
+            ("posts/*.ipynb", "blog", "post.tmpl"),
+            ("posts/*.html", "blog", "post.tmpl")
         ]
 PAGES = [
             ("pages/*.txt", ""    , "story.tmpl"),
-            ("pages/*.md" , ""    , "story.tmpl")
+            ("pages/*.md" , ""    , "story.tmpl"),
+            ("pages/*.html", "", "story.tmpl")
         ]
 
 
@@ -268,7 +271,7 @@ COMPILERS = {
     # Pandoc detects the input from the source filename
     # but is disabled by default as it would conflict
     # with many of the others.
-    # "pandoc": ('.rst', '.md', '.txt'),
+    "pandoc": ('.tex','.docx'),
 }
 
 # Create by default posts in one file format?

@@ -1,6 +1,6 @@
 <!-- 
 .. title: How I Missed My Shot At A Google Interview (Or How Not To FooBar)
-.. slug: how-i-missed-my-shot-at-a-google-interview-or-how-not-to-foobar
+.. slug: how-i-missed-my-shot-at-a-google-interview-or-how-not-to-foobar-b
 .. date: 2016-06-30 15:22:26 UTC-04:00
 .. tags: draft
 .. category: 
@@ -8,6 +8,14 @@
 .. description: 
 .. type: text
 -->
+
+<!-- 
+[ ] Start of the story
+[ ] Explanation of Foobar
+[ ] <Cut back to me>
+[ ] <Click yes -> back>
+[ ] <Invitation denied>
+ -->
 
 It was the week before midterms a few months back. At the time, I was up to my ankles with studying and finishing my thesis, and was working on some code when I found myself Googling the documentation for the itertools python module. What happened next was surprising, and in my case unfortunate: I received the invitation for "foo.bar". 
 
