@@ -54,7 +54,6 @@ BLOG_DESCRIPTION = "This is a demo site for Nikola."  # (translatable)
 # it     Italian
 # ja     Japanese [NOT jp]
 # ko     Korean
-# nb     Norwegian Bokmål
 # nl     Dutch
 # pa     Punjabi
 # pl     Polish
@@ -145,7 +144,7 @@ NAVIGATION_LINKS = {
         ("/blog/index.html","Blog"),
         ("/archive.html", "Archive"),
         ("/categories/index.html", "Tags"),
-        ("/about-me/index.html","About Me"),
+        ("/pages/about-me/index.html","AboutMe"),
         ("/rss.xml", "RSS feed"),
     ),
 }
@@ -655,7 +654,7 @@ CODE_COLOR_SCHEME = 'igor'
 # 'Read more...' for the index page, if INDEX_TEASERS is True (translatable)
 INDEX_READ_MORE_LINK = '<p class="more"><a href="{link}">{read_more}…</a></p>'
 # 'Read more...' for the RSS_FEED, if RSS_TEASERS is True (translatable)
-RSS_READ_MORE_LINK = '<p><a href="{link}">{read_more}…</a> ({min_remaining_read})</p>'
+FEED_READ_MORE_LINK = '<p><a href="{link}">{read_more}…</a> ({min_remaining_read})</p>'
 
 # Append a URL query to the RSS_READ_MORE_LINK in Atom and RSS feeds. Advanced
 # option used for traffic source tracking.
@@ -665,7 +664,7 @@ RSS_READ_MORE_LINK = '<p><a href="{link}">{read_more}…</a> ({min_remaining_rea
 # {feedFormat}                  The name of the syndication format.
 # Example using replacement for use with Google Analytics:
 # "utm_source={feedRelUri}&utm_medium=nikola_feed&utm_campaign={feedFormat}_feed"
-RSS_LINKS_APPEND_QUERY = False
+FEED_LINKS_APPEND_QUERY = False
 
 # A HTML fragment describing the license, for the sidebar.
 # (translatable)
@@ -743,7 +742,7 @@ COMMENT_SYSTEM_ID = ""
 # (Uses the INDEX_FILE setting, so if that is, say, default.html,
 # it will instead /foo/default.html => /foo)
 # (Note: This was briefly STRIP_INDEX_HTML in v 5.4.3 and 5.4.4)
-STRIP_INDEXES = False
+STRIP_INDEXES = True
 
 # Should the sitemap list directories which only include other directories
 # and no files.

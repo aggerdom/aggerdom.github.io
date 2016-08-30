@@ -1,0 +1,26 @@
+##<%doc>
+##    Used for creating columns in a markdown post while using the Bootstrap 3 theme with Mako templating. Use wrap what you want inside the `column` version of the splitcode. At present I do not believe that the shortcode engine for Nikola supports nested shortcodes.
+##    Parameters:
+##      screensize: Smallest screensize for which column behavior is
+##          enforced. (Google 'bootstrap column syntax' for examples)
+##      colwidth: fraction of a row the column takes up out of twelve.
+##          (ex: colwidth 4 ==> 4/12 of the row)
+##  
+##      Use:
+##          <div class='row'>
+##           {{% column screensize=xs colwidth=4 %}}
+##              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quo vero culpa excepturi ullam commodi, laborum sint, illum minus quisquam natus porro, reiciendis. Rem explicabo excepturi, quisquam repudiandae quaerat omnis!
+##           {{% /column %}}
+##           {{% column screensize=xs colwidth=8 %}}
+##              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos quibusdam molestias beatae reiciendis, omnis vero aliquid. Illum dicta accusantium esse consequuntur deleniti fugit magnam quidem, nostrum earum. Dignissimos, nemo, et.
+##           {{% /column %}}
+##          </div>
+## <%/doc>
+
+% if data:
+    <div class="col-${screensize}-${colwidth}">
+        <p>
+            ${data}
+        </p>
+    </div>
+% endif
